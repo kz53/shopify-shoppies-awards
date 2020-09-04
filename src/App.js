@@ -98,7 +98,7 @@ class App extends React.Component {
 
   getResults(queryStr) {
     const encodedStr = this.encodeStr(queryStr);
-    fetch("http://www.omdbapi.com/?apikey=fdf02835&s&page=1&type=movie&s=" + encodedStr)
+    fetch("https://www.omdbapi.com/?apikey=fdf02835&s&page=1&type=movie&s=" + encodedStr)
       .then(res => res.json())
       .then(
         (result) => {
@@ -130,7 +130,7 @@ class App extends React.Component {
   }
 
   getDeets(id) {
-    fetch("http://www.omdbapi.com/?apikey=fdf02835&s&page=1&type=movie&plot=short&i=" + id)
+    fetch("https://www.omdbapi.com/?apikey=fdf02835&s&page=1&type=movie&plot=short&i=" + id)
       .then(res => res.json())
       .then(
         (result) => {
