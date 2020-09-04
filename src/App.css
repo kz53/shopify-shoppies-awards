@@ -1,0 +1,199 @@
+@keyframes popDown {
+  0% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes popUp {
+  0% {
+    transform: translateY(30px);
+  }
+}
+
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 0px;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:100vw;
+}
+
+ol, ul {
+  padding-left: 30px;
+}
+
+div {
+  /* border: 1px solid gray; */
+}
+
+.flex {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+.added {
+  color:red;
+  opacity: .5;
+}
+
+/* Banner */
+.banner {
+  height: 30px;
+  width: 100vw;
+  background-color: green;
+  color: whitesmoke;
+  opacity: .60;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  padding-left: 20px;
+}
+
+.banner-show {
+  top:0px;
+  animation: popDown .5s;
+}
+
+.banner-hide {
+  top:-30px;
+  animation: popUp .5s;
+}
+
+/* Main Box */
+.main-bar {
+  margin-bottom: 10px;
+  min-height: 80px;
+  width: 80%;
+  max-width: 900px;
+}
+
+.search-bar {
+  width: 80%;
+  max-width: 800px;
+  margin-bottom: 5px;
+}
+
+/* Nomniations */
+.nominations {
+  width: 100%;
+}
+
+.nom-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  border: 2px solid pink;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height:18px;
+  font-size: 15px;
+}
+
+.nom-name {
+  height:20px;
+  overflow: hidden;
+}
+
+.delete-button  {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  border-radius: 15px;
+}
+
+.delete-button:hover {
+  opacity: .50;
+}
+
+.delete-button:active {
+} 
+
+.nom-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Results Section*/
+.results {
+  width: 80%;
+  max-width: 900px;
+}
+
+.result-box {
+  width:50%;
+  margin-right: 20px;
+}
+
+.result-row {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+}
+
+.result-name {
+  padding: 10px;
+}
+
+.result-name:hover {
+  opacity: .5;
+  padding: 10px;
+}
+
+.result-name:active {
+  padding: 10px;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  height:25px;
+}
+
+.add-button:hover {
+  opacity: .50;
+}
+
+.add-button:active {
+
+}
+
+.preview-box {
+  width: 50%;
+  display: flex;
+}
+
+.poster-plot {
+  padding: 15px;
+}
+
+.poster {
+  min-width: 150px;
+  max-width: 250px;
+}
+
+.plot {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .preview-box {
+    display: none;
+  }
+
+  .result-box {
+    width: 100%;
+  }
+}
