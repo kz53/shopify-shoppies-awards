@@ -47,12 +47,6 @@ div {
   display: none;
 }
 
-.added {
-  color: gray !important;
-  border-color: gray !important;
-  opacity: .5;
-}
-
 /* Title */
 .title-1 {
   font-family: 'Playball';
@@ -68,6 +62,54 @@ div {
   bottom: 15px;
 }
 
+.box-shadow {
+  box-shadow: 0px 0px 8px gray;
+}
+
+/* Modal Box */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(75, 75, 75, 0.6);
+}
+
+.modal-main {
+  position:fixed;
+  background: #F3F6F6;
+  width: 80%;
+  height: 70%;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  overflow-y: scroll;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  left: 15px;  
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.modal-poster {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
 /* Banner */
 .banner {
   height: 30px;
@@ -78,6 +120,7 @@ div {
   display: flex;
   align-items: center;
   position: fixed;
+  top:-30px;
   padding-left: 20px;
 }
 
@@ -138,13 +181,15 @@ div {
   height: 15px;
   margin-right: 5px;
   border-radius: 15px;
+  font-weight: bolder;
 }
 
 .delete-button:hover {
-  opacity: .50;
+  opacity: .60;
 }
 
 .delete-button:active {
+  opacity: .30;
 } 
 
 .nom-row {
@@ -166,7 +211,7 @@ div {
   width:50%;
   margin-right: 20px;
   padding: 15px;
-  background-color: azure;
+  background-color: rgb(232, 233, 232);
 }
 
 .results-title {
@@ -194,6 +239,13 @@ div {
   padding: 10px;
 }
 
+
+.added {
+  color: gray !important;
+  border-color: gray !important;
+  opacity: .5 !important;
+}
+
 .add-button {
   display: flex;
   color: #856088;
@@ -208,10 +260,11 @@ div {
 }
 
 .add-button:hover {
-  opacity: .50;
+  opacity: .70;
 }
 
 .add-button:active {
+  opacity: .50;
 
 }
 
@@ -219,6 +272,7 @@ div {
   width: 50%;
   display: flex;
   padding: 15px;
+  background-color: rgb(232, 233, 232);
 }
 
 .preview-title {
@@ -226,8 +280,20 @@ div {
   padding-top: 5px;
 }
 
+.selected-title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
 .poster-plot {
-  padding: 15px;
+  padding: 25px;
+  overflow: hidden;
+}
+
+.modal-poster-plot {
+  padding: 50px;
+  overflow: hidden;
 }
 
 .poster {

@@ -1,7 +1,40 @@
 import React from 'react';
 import './App.css';
 
+const Modal = ({ handleClose, show, children }) => {
+  const showHideClassName = show ? "modal display-block" : "modal display-none";
+
+  return (
+    <div className={showHideClassName}>
+      <section className="modal-main">
+        {children}
+        <div className="modal-close" onClick={handleClose}><b>X</b></div>
+      </section>
+    </div>
+  );
+};
+
 class Results extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { show: false }; 
+    window.addEventListener('resize', ()=>this.handleResize());
+  }
+
+  handleResize() {
+    if (window.innerWidth>600) {
+      this.hideModal();
+    }
+  }
+
+  showModal = () => {
+    this.setState({ show: window.innerWidth<=600, });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
+
   checkIfNom(id) { 
     const filtered = this.props.noms.filter((x)=>id == x.imdbID);
     return filtered.length > 0;
@@ -9,15 +42,24 @@ class Results extends React.Component {
   render() {
     const films = this.props.films;
     const selected = this.props.selected;
+    const hasResults = films.length == 0;
+    const resultsStr = hasResults 
+      ?'Start typing to see some results'
+      :<span>
+        Showing results for <span className="search-term">"{this.props.term}"</span>.  &nbsp; Click on a title to see more info.
+      </span>
     const posterStr = selected == null?'':selected.Poster;
     const plotStr = selected == null?'':selected.Plot;
+    const directorStr = selected == null?'':selected.Director;
+    const actorsStr = selected == null?'':selected.Actors;
+    const titleStr = selected == null?'':selected.Title + ` (${selected.Year})`;
     
     const filmList = films.map((film) => {
         const added = this.checkIfNom(film.imdbID) || this.props.noms.length >= 5?'added':'';
         return(
           <div className="result-row" key={film.imdbID}>
             <div className={`add-button ${added}`} onClick={()=>this.props.add(film)} >Nominate</div>
-            <div className={`result-name`} onClick={()=>this.props.deets(film.imdbID)}>
+            <div className={`result-name`} onClick={()=>{this.showModal();this.props.deets(film.imdbID)}}>
               {film.Title} ({film.Year})
             </div>
           </div>
@@ -26,20 +68,32 @@ class Results extends React.Component {
     )
     return(
       <div className="flex">
-        <div className="result-box">
-          <div className="results-title">Showing results for <span className="search-term">"{this.props.term}"</span>.  Click on a title to see more.</div>
+        <div className="result-box box-shadow">
+          <div className="results-title">{resultsStr}</div>
           {/* <ul>{filmList}</ul>  */}
           {filmList}
         </div>
-        <div className="preview-box">
+        <div className="preview-box box-shadow">
           <div className="preview-title">Details:</div>
           <div className="poster-plot">
-            <div className="plot">{plotStr}</div>
+            <div className="selected-title"><b>{titleStr}</b></div>
+            <div className={`plot ${selected==null?'hidden':''}`}><b>Plot:</b> {plotStr}</div>
+            <div className={`plot ${selected==null?'hidden':''}`}><b>Director:</b> {directorStr}</div>
+            <div className={`plot ${selected==null?'hidden':''}`}><b>Actors:</b> {actorsStr}</div>
             <img className="poster" src={posterStr} />
           </div>
         </div>
+        <Modal show={this.state.show} handleClose={this.hideModal}>
+            <div className="modal-poster-plot">
+              <div className="selected-title"><b>{titleStr}</b></div>
+              <div className={`plot ${selected==null?'hidden':''}`}><b>Plot:</b> {plotStr}</div>
+              <div className={`plot ${selected==null?'hidden':''}`}><b>Director:</b> {directorStr}</div>
+              <div className={`plot ${selected==null?'hidden':''}`}><b>Actors:</b> {actorsStr}</div>
+              <div className="modal-poster"><img className="poster" src={posterStr} /></div>
+            </div>
+        </Modal>
       </div>
-    )
+    ) 
   }
 }
 
@@ -50,7 +104,7 @@ class Nominations extends React.Component {
     const filmList = films.map((film) =>
       <div className="nom-item" key={film.imdbID}>
         <div className="delete-button flex" onClick={()=>this.props.delete(film.imdbID)}>X</div>
-        <div className="nom-name">{film.Title} ({film.Year})</div>
+        <div className="nom-name"><b>{film.Title} ({film.Year})</b></div>
       </div>
     )
 
@@ -169,7 +223,7 @@ class App extends React.Component {
   }
 
   render() {
-    const have5 = this.state.nominations.length >= 5 ? 'banner-show' : 'banner-hide';
+    const have5 = this.state.nominations.length >= 5 ? 'banner-show' : '';
     return (
       <div className="main-container">
         <div className="title-1">The </div>
