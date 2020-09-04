@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
+
 @keyframes popDown {
   0% {
     transform: translateY(-30px);
@@ -11,8 +15,11 @@
 }
 
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
+  font: 14px 'Raleway', 'Futura', sans-serif;
+  color: #393D3F;
+  font-size: 18x;
   margin: 0px;
+  background-color: #F3F6F6;
 }
 
 .main-container {
@@ -21,6 +28,7 @@ body {
   justify-content: center;
   align-items: center;
   width:100vw;
+  padding-top: 40px;
 }
 
 ol, ul {
@@ -40,17 +48,33 @@ div {
 }
 
 .added {
-  color:red;
+  color: gray !important;
+  border-color: gray !important;
   opacity: .5;
+}
+
+/* Title */
+.title-1 {
+  font-family: 'Playball';
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.title-2 {
+  font-family: 'Teko';
+  font-size: 40px;
+  font-weight: 800;
+  position: relative;
+  bottom: 15px;
 }
 
 /* Banner */
 .banner {
   height: 30px;
   width: 100vw;
-  background-color: green;
+  background-color: #9BC53D;
   color: whitesmoke;
-  opacity: .60;
+  opacity: .80;
   display: flex;
   align-items: center;
   position: fixed;
@@ -76,9 +100,12 @@ div {
 }
 
 .search-bar {
-  width: 80%;
+  width: 100%;
   max-width: 800px;
   margin-bottom: 5px;
+  border: 1px solid #CF995F;
+  padding-left: 10px;
+  height: 30px;
 }
 
 /* Nomniations */
@@ -90,7 +117,8 @@ div {
   display: flex;
   align-items: baseline;
   justify-content: flex-start;
-  border: 2px solid pink;
+  border: 2px solid #393D3F;
+  border: 2px solid #B084CC;
   border-radius: 10px;
   margin-right: 10px;
   margin-bottom: 5px;
@@ -130,15 +158,27 @@ div {
   max-width: 900px;
 }
 
+.search-term {
+  font-size: 18px;
+}
+
 .result-box {
   width:50%;
   margin-right: 20px;
+  padding: 15px;
+  background-color: azure;
+}
+
+.results-title {
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .result-row {
   display: flex;
   overflow: hidden;
   align-items: center;
+  margin-bottom: 5px;
 }
 
 .result-name {
@@ -156,9 +196,14 @@ div {
 
 .add-button {
   display: flex;
+  color: #856088;
+  font-size: 15px;
+  font-weight: bold;
+  border: 3px solid #856088;
+  border-radius: 4px;
   align-items: center;
   justify-content: center;
-  padding: 5px;
+  padding: 2px;
   height:25px;
 }
 
@@ -173,6 +218,12 @@ div {
 .preview-box {
   width: 50%;
   display: flex;
+  padding: 15px;
+}
+
+.preview-title {
+  font-weight: bold;
+  padding-top: 5px;
 }
 
 .poster-plot {

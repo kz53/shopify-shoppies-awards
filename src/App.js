@@ -27,12 +27,12 @@ class Results extends React.Component {
     return(
       <div className="flex">
         <div className="result-box">
-          <div>Showing results for "{this.props.term}".</div>
+          <div className="results-title">Showing results for <span className="search-term">"{this.props.term}"</span>.  Click on a title to see more.</div>
           {/* <ul>{filmList}</ul>  */}
           {filmList}
         </div>
         <div className="preview-box">
-          <div>Details:</div>
+          <div className="preview-title">Details:</div>
           <div className="poster-plot">
             <div className="plot">{plotStr}</div>
             <img className="poster" src={posterStr} />
@@ -73,8 +73,10 @@ class App extends React.Component {
       hasMounted: false,
       activeSelect: null,
     }
- 
-    
+  }
+  
+  componentDidMount() {
+    document.title = 'Welcome to the Shoppies 2020!';
   }
   
   handleAdd(film){ 
@@ -170,7 +172,8 @@ class App extends React.Component {
     const have5 = this.state.nominations.length >= 5 ? 'banner-show' : 'banner-hide';
     return (
       <div className="main-container">
-        <h2>The Shoppies</h2>
+        <div className="title-1">The </div>
+        <div className="title-2">Shoppies</div>
         <div className={`banner ${have5}`}>Great! You have enough entries!</div>
         <div className="main-bar">
           <input className="search-bar" placeholder="Choose 5 entries to nominate" onChange={(event)=>this.handleChange(event)} />
