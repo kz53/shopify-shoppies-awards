@@ -78,7 +78,7 @@ div {
 
 .modal-main {
   position:fixed;
-  background: #F3F6F6;
+  background: rgb(232, 233, 232);
   width: 80%;
   height: 70%;
   top:50%;
@@ -284,6 +284,8 @@ div {
   display: flex;
   justify-content: center;
   margin-bottom: 5px;
+  font-family: 'Teko';
+  font-size: 20px;
 }
 
 .poster-plot {
