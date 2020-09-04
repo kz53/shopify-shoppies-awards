@@ -112,15 +112,17 @@ div {
 
 /* Banner */
 .banner {
-  height: 30px;
+  height: 40px;
   width: 100vw;
   background-color: #9BC53D;
+  font-size: 15px;
+  font-weight: bold;
   color: whitesmoke;
-  opacity: .80;
+  opacity: .90;
   display: flex;
   align-items: center;
   position: fixed;
-  top:-30px;
+  top:-40px;
   padding-left: 20px;
 }
 
@@ -130,7 +132,7 @@ div {
 }
 
 .banner-hide {
-  top:-30px;
+  top:-40px;
   animation: popUp .5s;
 }
 
@@ -144,7 +146,7 @@ div {
 
 .search-bar {
   width: 100%;
-  max-width: 800px;
+  /* max-width: 800px; */
   margin-bottom: 5px;
   border: 1px solid #CF995F;
   padding-left: 10px;
