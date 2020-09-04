@@ -18,6 +18,9 @@ class Results extends React.Component {
   constructor(props) {
     super(props);
     this.state = { show: false }; 
+  }
+
+  componentDidMount(){
     window.addEventListener('resize', ()=>this.handleResize());
   }
 
