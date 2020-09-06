@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import orangeFilm from './orange-film.png';
 
 const Modal = ({ handleClose, show, children }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
@@ -216,8 +217,15 @@ class App extends React.Component {
     const have5 = this.state.nominations.length >= 5 ? 'banner-show' : '';
     return (
       <div className="main-container">
-        <div className="title-1">The </div>
-        <div className="title-2">Shoppies</div>
+        <div className="flex">
+          <div className="logo-container">
+            <img className="logo-pic" src={orangeFilm} />
+          </div>
+          <div className="title-container">
+            <div className="title-1">The </div>
+            <div className="title-2">Shoppies</div>
+          </div>
+        </div>
         <div className={`banner ${have5}`}>Great! You have enough entries!</div>
         <div className="main-bar">
           <input className="search-bar" placeholder="Choose 5 entries to nominate" onChange={(event)=>this.handleChange(event)} />

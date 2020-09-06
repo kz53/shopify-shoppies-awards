@@ -47,6 +47,15 @@ div {
   display: none;
 }
 
+.logo-container {
+  padding-top: 12px;
+  margin-right: 10px;
+}
+
+.logo-pic {
+  height: 40px;
+}
+
 /* Title */
 .title-1 {
   font-family: 'Playball';
@@ -184,6 +193,7 @@ div {
   margin-right: 5px;
   border-radius: 15px;
   font-weight: bolder;
+  cursor: pointer;
 }
 
 .delete-button:hover {
@@ -230,6 +240,7 @@ div {
 
 .result-name {
   padding: 10px;
+  cursor: pointer;
 }
 
 .result-name:hover {
@@ -259,6 +270,7 @@ div {
   justify-content: center;
   padding: 2px;
   height:25px;
+  cursor: pointer;
 }
 
 .add-button:hover {
@@ -316,5 +328,6 @@ div {
 
   .result-box {
     width: 100%;
+    margin-right: 0px;
   }
 }
